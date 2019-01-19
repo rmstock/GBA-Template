@@ -1,0 +1,10 @@
+*.o
+*.elf
+*.gba
+*.pal
+*.exe
+tiles.c
+tiles.h
+sprites.c
+sprites.h
+
