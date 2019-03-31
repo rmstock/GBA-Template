@@ -24,7 +24,7 @@ IMGS    := white.bmp green_single.bmp purple_left.bmp purple_right.bmp
 
 SPRT    := ball.bmp
 
-MUSIC   := moondrops.mp3
+MUSIC   := UpInMyJam.mp3
 
 # --- boot type (MB=0 : normal. MB=1 : multiboot) ---
 
@@ -93,9 +93,9 @@ sprites.c : my.pal image_converter.exe
 	./image_converter.exe sprites 0 my.pal $(SPRT)
 	
 music.c : sound_converter.exe
-	../../../../../Downloads/ffmpeg-4.1.1-win64-static/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe -i moondrops.mp3 -ac 1 moondrops.wav
-	../../../../../Downloads/ffmpeg-4.1.1-win64-static/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe -i moondrops.wav -map_metadata -1 -ar 16000 moondrops2.wav
-	./sound_converter.exe music moondrops2.wav
+	../../../../../Downloads/ffmpeg-4.1.1-win64-static/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe -i UpInMyJam.mp3 -ac 1 UpInMyJam.wav
+	../../../../../Downloads/ffmpeg-4.1.1-win64-static/ffmpeg-4.1.1-win64-static/bin/ffmpeg.exe -i UpInMyJam.wav -map_metadata -1 -ar 16000 UpInMyJam2.wav
+	./sound_converter.exe music UpInMyJam2.wav
 
 sound_converter.exe : sound_converter.c
 	gcc -ggdb sound_converter.c -o sound_converter.exe
@@ -121,8 +121,6 @@ clean :
 	@rm -fv my.pal
 	@rm -fv *.exe
 	@rm -fv *.wav
-	@rm -fv moondrops*.c
-	@rm -fv moondrops*.h
 	@rm -fv music.*
 
 #EOF
