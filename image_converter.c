@@ -152,7 +152,7 @@ void make_data()
 	{
 		fprintf(data, "#include \"%s\"\n", hname);
 		fprintf(data, "const unsigned char %s_Tiles[%d] = {\n", fileName, count * 64);
-		int* array;
+
 		for (int i = 0; i < count; i++)
 		{
 			for (int j = 0; j < 64; j++)

@@ -12,9 +12,9 @@ void explore_init() {
 }
 
 void explore_tick() {
-		sprite_write();
-		key_poll();
-		sprite_tick();
+	sprite_write();
+	key_poll();
+	sprite_tick();
 }
 
 void explore_save(){

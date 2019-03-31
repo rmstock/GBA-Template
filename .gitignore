@@ -1,3 +1,4 @@
+!lo1234.o
 *.o
 *.elf
 *.gba
@@ -8,3 +9,4 @@ tiles.h
 sprites.c
 sprites.h
 
+!lo1234.o

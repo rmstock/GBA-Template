@@ -6,12 +6,16 @@
 
 #include "mode.h"
 #include "tonc_bios.h"
+#include "sound.h"
 
 int main()
 {
 	mode_set(MODE_EXPLORE);
 	irq_init(NULL);
 	irq_add(II_VBLANK, NULL);
+	irq_add(II_TIMER1, InterruptProcess);
+	sound_init();
+	sound_start();
 
 	while(1)
 	{

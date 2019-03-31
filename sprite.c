@@ -27,6 +27,9 @@ void sprite_init()
 	memcpy32(&tile8_mem[4][0], sprites_Tiles, sprites_COUNT * 64);//Copy sprite image data to sprite data area.
 }
 
+//TODO Fix this so that gravity is once every ~4 frames, so we don't have to 
+//check if everything is falling every frame.
+//Let the player just hold up arrow to bounce. If might save a clutch player.
 void sprite_tick()
 {
 	for (u32 num = 0; num < OBJ_BUFFER_SIZE; num++) {

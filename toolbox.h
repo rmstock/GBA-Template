@@ -104,10 +104,12 @@ typedef SCR_ENTRY	SCREENBLOCK[1024];
 // se_mem[y][x] = screen entry (screen block y, screen entry x)
 #define se_mem			((SCREENBLOCK*)MEM_VRAM)
 
-
 // --- registers ------------------------------------------------------
 
 #define REG_BASE	MEM_IO
+#define REG_IF *(vu16*)(REG_BASE+0x0202) //!< IRQ status/acknowledge
+#define REG_IE *(vu16*)(REG_BASE+0x0200)//!< IRQ enable
+#define REG_IME *(vu16*)(REG_BASE+0x0208)//!< IRQ master enable
 
 #define REG_DISPCNT			*(vu32*)(REG_BASE+0x0000)	// display control
 #define REG_DISPSTAT		*(vu16*)(REG_BASE+0x0004)	// display interupt status
@@ -129,6 +131,23 @@ typedef SCR_ENTRY	SCREENBLOCK[1024];
 #define REG_BG2VOFS			*(vu16*)(REG_BASE+0x001A)
 #define REG_BG3HOFS			*(vu16*)(REG_BASE+0x001C)
 #define REG_BG3VOFS			*(vu16*)(REG_BASE+0x001E)
+
+// --- timers ---
+#define REG_TM0CNT_H              *(vu16*)(REG_BASE+0x0102)
+#define REG_TM0CNT_L              *(vu16*)(REG_BASE+0x0100)
+#define REG_TM1CNT_L              *(vu16*)(REG_BASE+0x0104)
+#define REG_TM1CNT_H              *(vu16*)(REG_BASE+0x0106)
+
+// --- sound ---
+#define REG_SOUNDCNT_H            *(vu16*)(REG_BASE+0x0082)
+#define REG_SOUNDCNT_L            *(vu16*)(REG_BASE+0x0080)
+#define REG_SOUNDCNT_X            *(vu16*)(REG_BASE+0x0084)
+
+// --- dma ---
+#define REG_DMA1CNT_H             *(vu16*)(REG_BASE+0x00C6)
+#define REG_DMA1CNT_L             *(vu16*)(REG_BASE+0x00C4)
+#define REG_DMA1SAD               *(vu32*)(REG_BASE+0x00BC)       //!< DMA 1 Source address
+#define REG_DMA1DAD               *(vu32*)(REG_BASE+0x00C0)       //!< DMA 1 Destination address
 
 // --- keys ---
 #define REG_KEYINPUT		*(vu16*)(REG_BASE+0x0130)	// Key status
